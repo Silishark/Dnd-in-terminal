@@ -21,7 +21,7 @@ Log* Log::instance()
 void Log::init()
 {
     QDir* tmp = new QDir(QDir::currentPath());
-    m_path = tmp->path() + "/log.txt";
+    m_path = tmp->path() + "/log/log.txt";
     QFile file(m_path);
     file.open(QIODevice::ReadOnly);
     if(!file.isOpen())
