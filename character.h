@@ -6,21 +6,21 @@
 class Character
 {
 public:
-    Character();
-    ~Character();
+    Character(QString _name, QString _career): weapon(false), name(_name), career(_career)
+    {
+    }
+    ~Character() = default;
 
-    void setName(const QString& name);
-    void setName(const QString&& name);
-    QString name();
+    virtual void init();
+    virtual int Cskill();
 
     Character& operator=(Character const&) = delete;
     Character(Character const&) = delete;
 
-private:
-    QString m_name;
-    QString m_career;
-    qint64 m_general_ability;
-    qint64 m_career_ability;
+    bool weapon;
+    QString name;
+    QString career;
 };
 
 #endif // CHARACTER_H
+
