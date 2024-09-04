@@ -1,14 +1,14 @@
 #include "log.h"
 
-Log::Log():m_path(QString(".../log/log.txt"))
+Log::Log()
 {
     init();
 }
 
 Log::~Log()
 {
-    if(m_queue.size() > 0)
-        write();
+    qDebug() << "Log::~Log()";
+    clear();
 }
 
 Log* Log::instance()
@@ -20,8 +20,10 @@ Log* Log::instance()
 
 void Log::init()
 {
+    QDir* tmp = new QDir(QDir::currentPath());
+    m_path = tmp->path() + "/log.txt";
     QFile file(m_path);
-    file.open(QIODevice::ReadOnly | QIODevice::Text);
+    file.open(QIODevice::ReadOnly);
     if(!file.isOpen())
     {
         qDebug() << "Failed to open file" << m_path;
@@ -34,10 +36,11 @@ void Log::write()
     std::lock_guard lock(m_mutex);
     QFile file(m_path);
     file.open(QIODevice::Append);
-    while(m_queue.size() > 256)
+    while(m_queue.size() > 0)
     {
         file.write(m_queue.front().toUtf8());
         file.write("\n");
+        m_queue.pop();
     }
     file.close();
 }
@@ -64,6 +67,12 @@ void Log::add(int level, const QString& str)
         break;
     }
     m_queue.push(log + str);
-    if(m_queue.size() >= 256)
+    if(m_queue.size() >= 128)
         write();
+}
+
+void Log::clear()
+{
+    m_queue.swap();
+    write();
 }

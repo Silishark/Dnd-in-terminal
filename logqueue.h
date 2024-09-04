@@ -15,7 +15,7 @@ public:
     qsizetype size();
     QString write_front();
     QString front();
-
+    void swap();
 private:
     QQueue<QString> _write;
     QQueue<QString> _read;

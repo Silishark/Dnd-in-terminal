@@ -13,10 +13,9 @@ void LogQueue::push(const QString& str)
 {
     std::mutex mtx;
     std::lock_guard lock(mtx);
-    if(_read.size() >= 256)
+    if(_read.size() >= 128)
     {
-        _write=std::move(_read);
-        _read=QQueue<QString>();
+        _write.swap(_read);
     }
     _read.push_back(str);
 }
@@ -25,10 +24,9 @@ void LogQueue::push(const QString&& str)
 {
     std::mutex mtx;
     std::lock_guard lock(mtx);
-    if(_read.size() >= 256)
+    if(_read.size() >= 128)
     {
-        _write=std::move(_read);
-        _read=QQueue<QString>();
+        _write.swap(_read);
     }
     _read.push_back(str);
 }
@@ -37,8 +35,8 @@ void LogQueue::pop()
 {
     std::mutex mtx;
     std::lock_guard lock(mtx);
-    if(_read.size() > 0)
-        _read.pop_front();
+    if(_write.size() > 0)
+        _write.pop_front();
 }
 
 QString LogQueue::front()
@@ -52,5 +50,14 @@ QString LogQueue::front()
 
 qsizetype LogQueue::size()
 {
-    return _read.size() + _write.size();
+    std::mutex mtx;
+    std::lock_guard lock(mtx);
+    return _write.size();
+}
+
+void LogQueue::swap()
+{
+    std::mutex mtx;
+    std::lock_guard lock(mtx);
+    _write.swap(_read);
 }

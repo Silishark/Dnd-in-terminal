@@ -18,6 +18,7 @@ private:
     ~Log();
     void write();
     void init();
+    void clear();
 private:
     std::mutex m_mutex;
     std::condition_variable m_cond;
@@ -27,12 +28,12 @@ private:
     class LogDel
     {
     public:
-        LogDel() = default;
         ~LogDel()
         {
             if (Log::m_instance)
             {
                 delete Log::m_instance;
+                qDebug() << "LogDel::~LogDel()";
             }
         }
     };
