@@ -12,3 +12,9 @@ ThiefSelect::~ThiefSelect()
 {
     delete ui;
 }
+
+void ThiefSelect::on_returnButton_clicked()
+{
+    this->close();
+    emit returnToCareerSelect();
+}

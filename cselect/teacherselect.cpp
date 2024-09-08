@@ -12,3 +12,9 @@ TeacherSelect::~TeacherSelect()
 {
     delete ui;
 }
+
+void TeacherSelect::on_returnButton_clicked()
+{
+    this->close();
+    emit returnToCareerSelect();
+}

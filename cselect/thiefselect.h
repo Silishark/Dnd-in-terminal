@@ -14,7 +14,11 @@ class ThiefSelect : public QWidget
 public:
     explicit ThiefSelect(QWidget *parent = nullptr);
     ~ThiefSelect();
-
+signals:
+    void returnToCareerSelect();
+    void enterToGame();
+private slots:
+    void on_returnButton_clicked();
 private:
     Ui::ThiefSelect *ui;
 };

@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class WarriorSelect;
 }
 
@@ -15,6 +16,11 @@ public:
     explicit WarriorSelect(QWidget *parent = nullptr);
     ~WarriorSelect();
 
+signals:
+    void returnToCareerSelect();
+    void enterToGame();
+private slots:
+    void on_returnButton_clicked();
 private:
     Ui::WarriorSelect *ui;
 };

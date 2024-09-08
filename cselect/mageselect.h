@@ -14,7 +14,11 @@ class MageSelect : public QWidget
 public:
     explicit MageSelect(QWidget *parent = nullptr);
     ~MageSelect();
-
+signals:
+    void returnToCareerSelect();
+    void enterToGame();
+private slots:
+    void on_returnButton_clicked();
 private:
     Ui::MageSelect *ui;
 };

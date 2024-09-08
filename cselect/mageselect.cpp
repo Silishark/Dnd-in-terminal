@@ -12,3 +12,9 @@ MageSelect::~MageSelect()
 {
     delete ui;
 }
+
+void MageSelect::on_returnButton_clicked()
+{
+    this->close();
+    emit returnToCareerSelect();
+}

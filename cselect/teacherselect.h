@@ -14,7 +14,11 @@ class TeacherSelect : public QWidget
 public:
     explicit TeacherSelect(QWidget *parent = nullptr);
     ~TeacherSelect();
-
+signals:
+    void returnToCareerSelect();
+    void enterToGame();
+private slots:
+    void on_returnButton_clicked();
 private:
     Ui::TeacherSelect *ui;
 };

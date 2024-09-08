@@ -12,3 +12,10 @@ WarriorSelect::~WarriorSelect()
 {
     delete ui;
 }
+
+void WarriorSelect::on_returnButton_clicked()
+{
+    this->close();
+    emit returnToCareerSelect();
+}
+
