@@ -2,7 +2,7 @@
 #define CAREER_H
 
 #include "mage.h"
-#include "worrior.h"
+#include "warrior.h"
 #include "teacher.h"
 #include "thief.h"
 
