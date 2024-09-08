@@ -1,19 +1,15 @@
 #ifndef MAGE_H
 #define MAGE_H
 
-#include "character.h"
-
-class Mage : public Character
+class Mage
 {
-    Mage(QString _name): Character(_name, "Mage")
+public:
+    Mage()
     {
     }
     ~Mage() = default;
-    virtual void init() override
-    {
 
-    }
-    virtual int Cskill() override
+    int Cskill()
     {
         return 0;
     }

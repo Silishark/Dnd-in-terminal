@@ -1,19 +1,13 @@
 #ifndef TEACHER_H
 #define TEACHER_H
 
-#include "character.h"
-
-class Teacher : public Character
+class Teacher
 {
-    Teacher(QString _name): Character(_name, "Teacher")
+    Teacher()
     {
     }
     ~Teacher() = default;
-    virtual void init() override
-    {
-
-    }
-    virtual int Cskill() override
+    int Cskill()
     {
         return 0;
     }

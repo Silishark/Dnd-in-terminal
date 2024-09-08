@@ -1,18 +1,13 @@
 #ifndef WORRIOR_H
 #define WORRIOR_H
 
-#include "character.h"
-
-class Worrior : public Character
+class Worrior
 {
-    Worrior(QString _name): Character(_name, "Worrior")
+    Worrior()
     {
     }
     ~Worrior() = default;
-    virtual void init() override
-    {
-    }
-    virtual int Cskill() override
+    int Cskill()
     {
         return 0;
     }
