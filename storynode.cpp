@@ -1,3 +1,6 @@
 #include "storynode.h"
 
-StoryNode::StoryNode() {}
+StoryNode::StoryNode(QString text, int stage)
+{
+
+}
