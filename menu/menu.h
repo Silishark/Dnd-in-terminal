@@ -3,6 +3,10 @@
 
 #include <QMainWindow>
 #include "include/ui/cselect/careerselect.h"
+#include "include/game/game.h"
+#include "include/log/log.h"
+
+extern Game* game;
 
 namespace Ui
 {
@@ -19,7 +23,7 @@ public:
 
 private slots:
     void on_enterButton_clicked();
-
+    void on_exitButton_clicked();
 private:
     Ui::Menu *ui;
 };

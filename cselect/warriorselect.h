@@ -2,6 +2,9 @@
 #define WARRIORSELECT_H
 
 #include <QWidget>
+#include "game/game.h"
+
+extern Game* game;
 
 namespace Ui
 {
@@ -22,6 +25,7 @@ signals:
 private slots:
     void on_returnButton_clicked();
 private:
+    void readJson();
     Ui::WarriorSelect *ui;
 };
 

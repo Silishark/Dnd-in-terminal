@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class MageSelect;
 }
 
@@ -20,6 +21,7 @@ signals:
 private slots:
     void on_returnButton_clicked();
 private:
+    void readJSON();
     Ui::MageSelect *ui;
 };
 
