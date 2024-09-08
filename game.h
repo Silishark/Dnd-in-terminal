@@ -1,23 +1,20 @@
 #ifndef GAME_H
 #define GAME_H
 
-#include <QWidget>
+#include "gamer.h"
 
-namespace Ui
+class Game
 {
-class Game;
-}
-
-class Game : public QWidget
-{
-    Q_OBJECT
-
 public:
-    explicit Game(QWidget *parent = nullptr);
-    ~Game();
+    static Game* instance();
     void init();
+    void start();
+    Gamer* gamer;
 private:
-    Ui::Game *ui;
+    Game();
+    ~Game() = default;
 };
+
+extern Game* game;
 
 #endif // GAME_H

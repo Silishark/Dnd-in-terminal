@@ -1,19 +1,19 @@
 #include "game.h"
-#include "ui_game.h"
 
-Game::Game(QWidget *parent)
-    : QWidget(parent)
-    , ui(new Ui::Game)
+Game* game = Game::instance();
+
+Game* Game::instance()
 {
-    ui->setupUi(this);
+    static Game instance;
+    return &instance;
 }
 
-Game::~Game()
+Game::Game()
 {
-    delete ui;
+
 }
 
-void init()
+void Game::init()
 {
 
 }
