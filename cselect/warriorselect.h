@@ -2,7 +2,7 @@
 #define WARRIORSELECT_H
 
 #include <QWidget>
-#include "game/game.h"
+#include "include/game/game.h"
 
 extern Game* game;
 
@@ -24,8 +24,10 @@ signals:
     void enterToGame();
 private slots:
     void on_returnButton_clicked();
+    void on_AldricButton_clicked();
+
 private:
-    void readJson();
+    void readJson(const QString&& name);
     Ui::WarriorSelect *ui;
 };
 

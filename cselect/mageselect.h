@@ -21,7 +21,7 @@ signals:
 private slots:
     void on_returnButton_clicked();
 private:
-    void readJSON();
+    void readJSON(const QString &&name);
     Ui::MageSelect *ui;
 };
 

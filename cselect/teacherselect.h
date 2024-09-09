@@ -20,6 +20,7 @@ signals:
 private slots:
     void on_returnButton_clicked();
 private:
+    void readJson(const QString&& name);
     Ui::TeacherSelect *ui;
 };
 

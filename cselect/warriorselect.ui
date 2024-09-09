@@ -43,9 +43,9 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_5">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="AldricButton">
         <property name="text">
-         <string>PushButton</string>
+         <string>Aldric</string>
         </property>
        </widget>
       </item>
