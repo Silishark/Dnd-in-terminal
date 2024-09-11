@@ -5,7 +5,9 @@
 #include "QJsonParseError"
 #include "QTextStream"
 #include "QJsonArray"
-#include "include/log/log.h"
+#include <QDebug>
+#include <QString>
+#include "include/game/game.h"
 
 FileIO::FileIO()
 {
@@ -15,14 +17,17 @@ FileIO::~FileIO()
 {
 }
 
-character_info FileIO::readCharacter(QString&& name)
+void FileIO::readCharacter(const QString name)
 {
-    character_info info;
-    info.name = name;
+    Game::game->test();
+    qDebug() << name;
+    QString career,race,background;
+    int health,armor;
+    int speed,strength,intelligence;
     QFile file("include/config/character.json");
     if(!file.open(QIODevice::ReadOnly))
     {
-        LOG_ERROR("JSON File could not be opened.");
+        qDebug("JSON File could not be opened.");
     }
     QTextStream stream(&file);
     QString str = stream.readAll();
@@ -44,17 +49,17 @@ character_info FileIO::readCharacter(QString&& name)
     if (character.type() == QJsonValue::Object)
     {
         QJsonObject characterObject = character.toObject();
-        info.career = characterObject.value("career").toString();
-        info.race = characterObject.value("race").toString();
-        info.background = characterObject.value("background").toString();
+        career = characterObject.value("career").toString();
+        race = characterObject.value("race").toString();
+        background = characterObject.value("background").toString();
         //*****************************************************************************************
         //读取status
         QJsonValue status = characterObject.value("status");
         if(status.type() == QJsonValue::Object)
         {
             QJsonObject statusObj = status.toObject();
-            info.health = statusObj.value("health").toInt();
-            info.armor = statusObj.value("armor").toInt();
+            health = statusObj.value("health").toInt();
+            armor = statusObj.value("armor").toInt();
         }
         else
         {
@@ -67,9 +72,12 @@ character_info FileIO::readCharacter(QString&& name)
         {
             QJsonObject actionsObject = attributes.toObject();
             //读取actionsObj中的内容
-            info.strength = actionsObject.value("strength").toInt();
-            info.speed = actionsObject.value("speed").toInt();
-            info.intelligence = actionsObject.value("intelligence").toInt();
+            strength = actionsObject.value("strength").toInt();
+            speed = actionsObject.value("speed").toInt();
+            intelligence = actionsObject.value("intelligence").toInt();
+            qDebug() << strength;
+            qDebug() << speed;
+            qDebug() << intelligence;
         }
         else
         {
@@ -86,7 +94,8 @@ character_info FileIO::readCharacter(QString&& name)
             {
                 QJsonValue memorySingal = memoryArray.at(i);
                 //读取memoryObj中的内容
-                info.memory.push_back(memorySingal.toString());
+                Game::game->gamer->getUser()->addMemory(QString(memorySingal.toString()));
+                qDebug() << memorySingal.toString();
             }
         }
         else
@@ -102,7 +111,8 @@ character_info FileIO::readCharacter(QString&& name)
             for(int i=0;i < actionsArray.size();++i)
             {
                 QJsonValue action = actionsArray.at(i);
-                info.actions.push_back(action.toString());
+                Game::game->gamer->getUser()->addAction(QString(action.toString()));
+                qDebug() << action.toString();
             }
         }
         else
@@ -114,5 +124,5 @@ character_info FileIO::readCharacter(QString&& name)
     {
         qDebug("Data read failed.");
     }
-    return info;
+    Game::game->gamer->getUser()->init(career, race,health,armor,speed,strength,intelligence);
 }
