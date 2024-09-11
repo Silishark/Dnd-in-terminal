@@ -1,0 +1,64 @@
+{
+  "Aldric":
+  {
+    "race": "Human",
+    "career": "Warrior",
+    "background": "A seasoned warrior with a tragic past, seeking redemption through battle.",
+    "status": 
+    {
+      "health": 100,
+      "armor": 15
+    },
+    "actions": 
+    [
+      "attack",
+      "defend",
+      "cast_spell",
+      "use_item",
+      "flee"
+    ],
+    "memory":
+    [
+      "Fought alongside the player against the Dark Sorcerer.",
+      "Saved by the player during an ambush.",
+      "Discussed strategy with the player before the battle."
+    ],
+    "attributes": 
+    {
+      "strength": 18,
+      "speed": 12,
+      "intelligence": 10
+    }
+  },
+  "Jorvan":
+  {
+    "race":"Human",
+    "career": "Warrior",
+    "background": "A mysterious figure who navigates the shadows, driven by a relentless pursuit of the truth hidden in the darkness.",
+    "status": 
+    {
+      "health": 105,
+      "armor": 14
+    },
+    "actions": 
+    [
+      "attack",
+      "defend",
+      "cast_spell",
+      "use_item",
+      "flee"
+    ],
+    "memory":
+    [
+      "Fought alongside the player against the Dark Sorcerer.",
+      "Saved by the player during an ambush.",
+      "Discussed strategy with the player before the battle."
+    ],
+    "attributes": 
+    {
+      "strength": 19,
+      "speed": 13,
+      "intelligence": 9
+    }
+  }
+}
