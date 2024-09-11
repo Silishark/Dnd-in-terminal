@@ -66,7 +66,7 @@ void Log::add(int level, const QString& str)
         break;
     }
     m_queue.push(log + str);
-    if(m_queue.size() >= 128)
+    if(m_queue.size() >= 128 || level >= 3)
         write();
 }
 
