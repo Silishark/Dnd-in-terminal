@@ -1,7 +1,6 @@
 #include "menu.h"
 #include "ui_menu.h"
-
-extern Game* game;
+#include "include/game/game.h"
 
 Menu::Menu(QWidget *parent)
     : QMainWindow(parent)
@@ -18,7 +17,7 @@ Menu::~Menu()
 void Menu::on_enterButton_clicked()
 {
     this->close();
-    game->init();
+    Game::game->init();
     CareerSelect *cselect = new CareerSelect();
     cselect->show();
 }

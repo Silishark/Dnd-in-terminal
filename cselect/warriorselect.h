@@ -2,9 +2,7 @@
 #define WARRIORSELECT_H
 
 #include <QWidget>
-#include "include/game/game.h"
-
-extern Game* game;
+#include <include/ui/mainscene/mainscene.h>
 
 namespace Ui
 {
@@ -18,16 +16,14 @@ class WarriorSelect : public QWidget
 public:
     explicit WarriorSelect(QWidget *parent = nullptr);
     ~WarriorSelect();
-
 signals:
     void returnToCareerSelect();
     void enterToGame();
 private slots:
     void on_returnButton_clicked();
     void on_AldricButton_clicked();
-
+    void on_JorvanButton_clicked();
 private:
-    void readJson(const QString&& name);
     Ui::WarriorSelect *ui;
 };
 

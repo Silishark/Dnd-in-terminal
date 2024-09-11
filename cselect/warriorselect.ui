@@ -24,9 +24,9 @@
      </property>
      <layout class="QVBoxLayout" name="verticalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="JorvanButton">
         <property name="text">
-         <string>PushButton</string>
+         <string>Jorvan</string>
         </property>
        </widget>
       </item>

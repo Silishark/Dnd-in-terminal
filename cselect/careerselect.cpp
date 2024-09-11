@@ -23,7 +23,6 @@ void CareerSelect::on_mageButton_clicked()
     connect(mage,&MageSelect::returnToCareerSelect,this,&QWidget::show);
     connect(mage,&MageSelect::enterToGame,this,&QWidget::close);
     mage->setAttribute(Qt::WA_DeleteOnClose);
-    //game->gamer->setCareer(MAGE);
     mage->show();
 }
 
@@ -33,7 +32,6 @@ void CareerSelect::on_warriorButton_clicked()
     WarriorSelect *warrior = new WarriorSelect();
     connect(warrior,&WarriorSelect::returnToCareerSelect,this,&QWidget::show);
     warrior->setAttribute(Qt::WA_DeleteOnClose);
-    //game->gamer->setCareer(WARRIOR);
     warrior->show();
 }
 
@@ -43,7 +41,6 @@ void CareerSelect::on_thiefButton_clicked()
     ThiefSelect *thief = new ThiefSelect();
     connect(thief,&ThiefSelect::returnToCareerSelect,this,&QWidget::show);
     thief->setAttribute(Qt::WA_DeleteOnClose);
-    //game->gamer->setCareer(THIEF);
     thief->show();
 }
 
@@ -53,6 +50,5 @@ void CareerSelect::on_teacherButton_clicked()
     TeacherSelect *teacher = new TeacherSelect();
     connect(teacher,&TeacherSelect::returnToCareerSelect,this,&QWidget::show);
     teacher->setAttribute(Qt::WA_DeleteOnClose);
-    //game->gamer->setCareer(TEACHER);
     teacher->show();
 }

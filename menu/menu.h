@@ -3,10 +3,7 @@
 
 #include <QMainWindow>
 #include "include/ui/cselect/careerselect.h"
-#include "include/game/game.h"
 #include "include/log/log.h"
-
-extern Game* game;
 
 namespace Ui
 {

@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class MainScene;
 }
 
@@ -14,6 +15,9 @@ class MainScene : public QWidget
 public:
     explicit MainScene(QWidget *parent = nullptr);
     ~MainScene();
+signals:
+    void returnToCareerSelect();
+    void enterToGame();
 
 private:
     Ui::MainScene *ui;

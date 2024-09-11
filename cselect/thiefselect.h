@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class ThiefSelect;
 }
 
@@ -19,8 +20,8 @@ signals:
     void enterToGame();
 private slots:
     void on_returnButton_clicked();
+
 private:
-    void readJson(const QString&& name);
     Ui::ThiefSelect *ui;
 };
 

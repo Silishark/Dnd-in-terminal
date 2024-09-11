@@ -3,7 +3,8 @@
 
 #include <QWidget>
 
-namespace Ui {
+namespace Ui
+{
 class TeacherSelect;
 }
 
@@ -20,7 +21,6 @@ signals:
 private slots:
     void on_returnButton_clicked();
 private:
-    void readJson(const QString&& name);
     Ui::TeacherSelect *ui;
 };
 
