@@ -3,7 +3,7 @@
 
 #include <QVector>
 #include <QString>
-#include "career.h"
+#include <QDebug>
 
 #define MAGE 1
 #define WARRIOR 2
@@ -12,49 +12,39 @@
 
 class Character
 {
-
 public:
-    Character();
+    Character()
+    {
+    }
     ~Character()
     {
     }
-    void addDialog(const QString& log)
-    {
-        this->dialog.push_back(log);
-    }
-    QString getDialog(int index)
-    {
-        return dialog[index];
-    }
-    void init(QString name, QString race, int health, int armor, int speed, int strength, int intelligence)
+    void setName(const QString& name)
     {
         m_name = name;
+        qDebug("name success");
+
+    }
+    void init(QString& career, QString& race,int health,int armor,int speed,int strength,int intelligence)
+    {
+        m_career = career;
         m_race = race;
         m_health = health;
         m_armor = armor;
         m_speed = speed;
         m_strength = strength;
         m_intelligence = intelligence;
+        qDebug("init success");
     }
-    void setCareer(int order)
+    void addMemory(const QString& memory)
     {
-        switch(order)
-        {
-        case MAGE:
-            m_career = "Mage";
-            break;
-        case WARRIOR:
-            m_career = "Warrior";
-            break;
-        case TEACHER:
-            m_career = "Teacher";
-            break;
-        case THIEF:
-            m_career = "Thief";
-            break;
-        default:
-            break;
-        }
+        m_memory.push_back(memory);
+        qDebug("momory");
+    }
+    void addAction(const QString& action)
+    {
+        m_actions.push_back(action);
+        qDebug("action");
     }
 private:
     QString m_name;
@@ -65,7 +55,8 @@ private:
     int m_speed;
     int m_strength;
     int m_intelligence;
-    QVector<QString> dialog;
+    QVector<QString> m_memory;
+    QVector<QString> m_actions;
 };
 
 #endif
