@@ -7,7 +7,7 @@
 class Gamer
 {
 public:
-    Gamer()
+    Gamer():m_x(0),m_y(0)
     {
     }
     ~Gamer()
@@ -22,10 +22,6 @@ public:
     {
         m_x += x;
         m_y += y;
-    }
-    void setCareer(int order)
-    {
-        m_user.setCareer(order);
     }
     Character* getUser()
     {

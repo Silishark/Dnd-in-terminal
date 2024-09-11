@@ -6,15 +6,17 @@
 class Game
 {
 public:
+    static Game* game;
     static Game* instance();
+
     void init();
     void start();
+
+    void test();
     Gamer* gamer;
 private:
     Game();
     ~Game() = default;
 };
-
-extern Game* game;
 
 #endif // GAME_H
