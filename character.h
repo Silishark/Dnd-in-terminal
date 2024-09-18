@@ -10,10 +10,15 @@
 #define TEACHER 3
 #define THIEF 4
 
+#define UP 1
+#define DOWN 2
+#define LEFT 3
+#define RIGHT 4
+
 class Character
 {
 public:
-    Character()
+    Character():m_direction(UP)
     {
     }
     ~Character()
@@ -36,6 +41,10 @@ public:
         m_intelligence = intelligence;
         qDebug("init success");
     }
+    void setDircetion(int direction)
+    {
+        m_direction = direction;
+    }
     void addMemory(const QString& memory)
     {
         m_memory.push_back(memory);
@@ -47,6 +56,7 @@ public:
         qDebug("action");
     }
 private:
+    int m_direction;
     QString m_name;
     QString m_career;
     QString m_race;
