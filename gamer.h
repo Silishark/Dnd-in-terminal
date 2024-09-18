@@ -1,13 +1,18 @@
 #ifndef GAMER_H
 #define GAMER_H
 
+#include <QMovie>
 #include <QLabel>
 #include "include/character/character.h"
+
+#define STOP 0
+#define SLOW 1
+#define FAST 3
 
 class Gamer
 {
 public:
-    Gamer():m_x(0),m_y(0)
+    Gamer():m_x(0),m_y(0),m_velocity(STOP),m_runningCondition(false)
     {
     }
     ~Gamer()
@@ -27,11 +32,23 @@ public:
     {
         return &m_user;
     }
+    void turn(int direction)
+    {
+        m_user.setDircetion(direction);
+        //m_label->setMovie();
+    }
+    void changeRunningCondition(int condition)
+    {
+        m_runningCondition = condition;
+        m_velocity = m_runningCondition;
+    }
+    int m_x;
+    int m_y;
+    int m_velocity;
 private:
     Character m_user;
     QLabel* m_label;
-    int m_x;
-    int m_y;
+    int m_runningCondition;
 };
 
 #endif // GAMER_H

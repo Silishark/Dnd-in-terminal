@@ -2,6 +2,7 @@
 #define GAME_H
 
 #include "gamer.h"
+#include "include/map/map.h"
 
 class Game
 {
@@ -11,9 +12,9 @@ public:
 
     void init();
     void start();
-
-    void test();
+    bool isHit();
     Gamer* gamer;
+    Map* map;
 private:
     Game();
     ~Game() = default;
