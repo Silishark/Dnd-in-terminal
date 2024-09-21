@@ -11,8 +11,13 @@ Game* Game::instance()
         newGame = new Game();
         newGame->gamer = new Gamer();
         newGame->map = Map::instance();
+        return newGame;
     }
-    return newGame;
+    else
+    {
+        return Game::game;
+    }
+
 }
 
 Game::Game()

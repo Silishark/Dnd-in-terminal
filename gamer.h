@@ -5,10 +5,6 @@
 #include <QLabel>
 #include "include/character/character.h"
 
-#define STOP 0
-#define SLOW 1
-#define FAST 3
-
 class Gamer
 {
 public:
@@ -47,7 +43,9 @@ public:
     int m_velocity;
 private:
     Character m_user;
-    QLabel* m_label;
+    //QMovie* m_movie;
+    //save the picture of the character
+    //QLabel* m_label;
     int m_runningCondition;
 };
 

@@ -4,6 +4,7 @@
 #include "gamer.h"
 #include "include/map/map.h"
 
+//Singleton Pattern
 class Game
 {
 public:
@@ -13,7 +14,9 @@ public:
     void init();
     void start();
     bool isHit();
+    //control the user's character
     Gamer* gamer;
+    //read the map data
     Map* map;
 private:
     Game();
