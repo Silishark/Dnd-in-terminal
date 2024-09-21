@@ -10,11 +10,12 @@ class Map
 public:
     static Map* instance();
     void init();
+    void addMapNode(int texture, QString path, int level, int x, int y);
+    MapNode* getMapNode(int x, int y);
+    static Map* map;
 private:
-    void rand();
-private:
-    QVector<QVector<MapNode*>> map;
-    QPair<MapNode*, StoryNode*> table;
+    QVector<QVector<MapNode*>> m_map;
+    QPair<MapNode*, StoryNode*> m_table;
     Map();
     ~Map();
 };
