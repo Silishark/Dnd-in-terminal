@@ -15,6 +15,11 @@
 #define LEFT 3
 #define RIGHT 4
 
+constexpr auto STOP = 0;
+constexpr auto SLOW = 1;
+constexpr auto FAST = 3;
+
+
 class Character
 {
 public:
