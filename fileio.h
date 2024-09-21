@@ -9,6 +9,7 @@ class FileIO
 {
 public:
     static void readCharacter(const QString name);
+    static void readMap(const int id);
 private:
     FileIO();
     ~FileIO();
